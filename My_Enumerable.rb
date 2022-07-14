@@ -9,15 +9,15 @@ module MyEnumerable
   end
 
   def any?
-    @list.each do |item| 
-      return true if yield(item)
-      end
+    @list.each do |item|
+        return true if yield(item)
+    end
     false
-  end 
+  end
 
   def filter
     even = []
-    @list.select do |item| 
+    @list.select do |item|
       even.push(item) if yield(item)
     end
     even
