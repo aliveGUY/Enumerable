@@ -1,21 +1,25 @@
 module MyEnumerable
-  def all?(@list)
+  def all?
     answer = false
-    @list.each do |item| answer = true if yield(item)
+    @list.each do |item|
+      answer = true if yield(item)
       return false unless yield(item)
     end
     answer
   end
 
-  def any?(@list)
-    @list.each do |item| return true if yield(item)
-    end 
+  def any?
+    @list.each do |item| 
+      return true if yield(item)
+      end
     false
-  end
+  end 
 
-  def filter(@list)
-    @list.select do |item| return true if yield(item)
+  def filter
+    even = []
+    @list.select do |item| 
+      even.push(item) if yield(item)
     end
-    false
+    even
   end
 end
